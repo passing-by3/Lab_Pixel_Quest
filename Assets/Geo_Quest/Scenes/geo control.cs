@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class geocontrol : MonoBehaviour
 {
     private Rigidbody2D rb;
     public int speed = 3;
+    public string nextLevel = "Geo_Quest_Scene_2";
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,6 @@ public class geocontrol : MonoBehaviour
     void Update()
     {
         float xSpeed = Input.GetAxis("Horizontal");
-        Debug.Log("xSpeed");
         rb.velocity = new Vector2(xSpeed * speed, rb.velocity.y);
 
         
@@ -35,6 +36,22 @@ public class geocontrol : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Hit");
+        switch (collision.tag)
+        {
+            case "Death":
+                {
+                    string thisLevel = SceneManager.GetActiveScene().name;
+                    SceneManager.LoadScene(thisLevel);
+                    Debug.Log("Player has died");
+                    break;
+                }
+
+            case "Finish":
+                {
+                    SceneManager.LoadScene (nextLevel);
+                    Debug.Log("Next level reached");
+                    break;
+                }
+        }
     }
 }
