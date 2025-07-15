@@ -6,13 +6,14 @@ using UnityEngine;
 public class geocontrol : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
     public int speed = 3;
-    public string nextLevel = "Geo_Quest_Scene_2";
+    public string nextLevel = "Level 1";
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-     
+        sr = GetComponent<SpriteRenderer>();
         
         
     }
@@ -22,8 +23,12 @@ public class geocontrol : MonoBehaviour
     {
         float xSpeed = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(xSpeed * speed, rb.velocity.y);
-
-        
+        if (Input.GetKeyDown(KeyCode.Alpha1)) 
+        { sr.color = Color.yellow; }
+        if (Input.GetKeyDown(KeyCode.Alpha2)) 
+        { sr.color = Color.red; }
+        if (Input.GetKeyDown(KeyCode.Alpha3)) 
+        { sr.color = Color.blue; }
         /*if (Input.GetKeyDown(KeyCode.W))
         {transform.position += new Vector3(0, 1, 0);}
         if (Input.GetKeyDown(KeyCode.S))
@@ -32,7 +37,7 @@ public class geocontrol : MonoBehaviour
         {transform.position += new Vector3(1, 0, 0);}
         if (Input.GetKeyDown(KeyCode.A))
         {transform.position += new Vector3(-1, 0, 0);}*/
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
