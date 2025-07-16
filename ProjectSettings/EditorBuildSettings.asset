@@ -5,13 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MenuLevel.unity
     guid: 2fa55462fc719a848b33dd6097f67562
-  - enabled: 1
+  - enabled: 0
     path: Assets/Pixel_Quest/Scenes/Pixel_Quest_TestLevel.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level_2.unity
     guid: f9555ef8cf6b50447922872cea2af702
+  - enabled: 1
+    path: Assets/Geo_Quest/Scenes/intro.unity
+    guid: 0bd5c093d2ff67a40971075fd7e158a2
+  - enabled: 1
+    path: Assets/Geo_Quest/Scenes/level 1.unity
+    guid: 27c6b6f9044685648b558733b7007b96
+  - enabled: 1
+    path: Assets/Geo_Quest/Scenes/level 2.unity
+    guid: f74a4f84656803d4dbcbaae43201add3
+  - enabled: 1
+    path: Assets/Geo_Quest/Scenes/level 3.unity
+    guid: a9b02054713f7ed43ac5b04f9926b50a
+  - enabled: 1
+    path: Assets/Geo_Quest/Scenes/u win scene(heaven).unity
+    guid: bb0eb8dd627bd7e4b91248e93e0e51f5
   m_configObjects: {}
