@@ -36,7 +36,7 @@ public class playerjump : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
-        if(rb.velocity.y<0)
+        if(rb.velocity.y<0 && !wc)
         {
             rb.velocity += gf * (fallForce * Time.deltaTime);
         }
