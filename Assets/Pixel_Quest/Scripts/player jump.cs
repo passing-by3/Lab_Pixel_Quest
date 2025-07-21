@@ -15,6 +15,9 @@ public class playerjump : MonoBehaviour
     public Transform feetCollider;
     public LayerMask groundMask;
     private bool gc;
+
+    private bool wc;
+    private string wt = "Water";
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,7 @@ public class playerjump : MonoBehaviour
         
         gc = Physics2D.OverlapCapsule(feetCollider.position, new Vector2(capsuleHeight, capsuleRadius), CapsuleDirection2D.Horizontal, 0, groundMask);
 
-        if (Input.GetKeyDown(KeyCode.Space) && gc)
+        if (Input.GetKeyDown(KeyCode.Space) && (gc || wc))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
@@ -36,6 +39,22 @@ public class playerjump : MonoBehaviour
         if(rb.velocity.y<0)
         {
             rb.velocity += gf * (fallForce * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag(wt))
+        {
+            wc = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag(wt))
+        {
+            wc = false;
         }
     }
 }
