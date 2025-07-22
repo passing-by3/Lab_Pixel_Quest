@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class playerstats : MonoBehaviour
 {
-     public string nextLevel = "Level 1";
+    public string nextLevel = "Level 1";
+    public int coincount = 0;
+    public int heart = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,20 @@ public class playerstats : MonoBehaviour
                 {
                     SceneManager.LoadScene(nextLevel);
                     Debug.Log("Next level reached");
+                    break;
+                }
+
+            case "coin":
+                {
+                    coincount++;
+                    Destroy(collision.gameObject);
+                    break;
+                }
+
+            case "heart":
+                {
+                    heart++;
+                    Destroy(collision.gameObject);
                     break;
                 }
         }
